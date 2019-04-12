@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" >
+  <title>For-2</title>
+</head>
+<body>
+  <script>
+    var highest = 0
+    var xiabiao = []
+    var j = 0
+    var scores = [1,5,6,8,31,9,31,25,30,31,21,31]
+    for (var i = 0; i < scores.length; i++) {
+      if (scores[i] > highest) {
+        highest = scores[i]
+        xiabiao = []
+        j = 0
+        xiabiao[j] = i
+      } else if (scores[i] == highest){
+        if (xiabiao == -1) {
+          j++
+          xiabiao[j] = i
+      }
+    }
+    for (var k = 0; k < xiabiao.length; k++) {
+      document.write ('<br>score[' + xiabiao[k] + '] = ' + highest)
+    }
+  </script>
+</body>
+</html>

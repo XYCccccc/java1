@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=`, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" >
+  <title>game</title>
+</head>
+<body>
+  <script>
+    function randchoice () {
+      var people = ['陈泽宇','杨克琴','郭懿婷','陈欣楚','杨心怡','吴倩雯','龚佳怡','李可新','陆心怡',
+      '张璐','潘梦情','田金丰','葛梦蝶','刘祎婷','沈宇峰','王达','李一鸣','徐志豪','孙睿褀','徐杨',
+      '濮徐杰','陈卓豪','刘通','王昱','林超凡','孔易飞','王诚礼','杨凤旗','王韫韬','吴策','顾强','薛宇成',
+      '俞浩','陈李鹏','徐超','顾伟豪','王钦鹏','孙权','潘铖','朱铭杨','张程','杨吉']
+      var time = ['早上', '中午', '下午', '晚上', '深更半夜']
+      var place = ['在宿舍', '在教室', '在食堂', '在操场','在梦里']
+      var active = ['吃饭', '打球', '睡觉', '看电影', '打游戏', '打豆豆']
+      var phrase = selection(people) + "" + selection(time) + "" + selection(place) + "" + selection(active);
+      document.write ('<h1>' + phrase + '</h1>');
+      
+      function selection (array) {
+        return array [Math.floor(Math.random() * array.length)]
+      }
+    }
+    randchoice();
+  </script>
+</body>
+</html>
