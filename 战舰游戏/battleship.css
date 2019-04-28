@@ -44,10 +44,10 @@ form input {
 }
 
 .miss {
-  background: url("miss.png") no-repeat center center;
+  background: url(miss.png) no-repeat center center;
 }
 
 .hit {
-  background: url("ship.png") no-repeat center center;
+  background: url(ship.png) no-repeat center center;
 }
 
