@@ -101,7 +101,7 @@ var controller = {
       location = parseGuess(e)
     }
     if(location){
-      controller.guess++;
+      controller.guesses++;
       var hit = model.fire(location);
       if (hit&& model.shipsSunk === model.numShips) {
         view.displayarea("你击沉了我的战舰,共计猜测" + controller.guesses + "次")
