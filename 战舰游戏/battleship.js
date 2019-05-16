@@ -40,15 +40,18 @@ var model = {
   return false;
 },
 isSunk: function(ship) {
-  for (var i = 0; i < this.shipLength; i++)  {
-    if (ship.hits[i] !== "hit") {
+  var count = 0;
+  for(var i = 0; i < this.shipLength; i++) {
+    if(ship.hits[i] === "hit") {
       count++;
-      Math.cell(count / hits.length);
-      return false;
+
+    }
+    if(this.shipLength * 0.66 < count) {
+      return true
     }
   }
-  return true;
- },
+  return false
+},
 generateShipLocations: function () {
   var locations;
   for (var i = 0; i < this.numShips; i++) {
