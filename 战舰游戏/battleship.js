@@ -21,11 +21,13 @@ var model = {
   ships: [ { locations: ["0", "0", "0"], hits: ["", "", ""] },
            { locations: ["0", "0", "0"], hits: ["", "", ""] },
            { locations: ["0", "0", "0"], hits: ["", "", ""] } ],
-  fire: function(guess) { 
+
+  fire: function(guess) {
     for (var i = 0; i < this.numShips; i++) {
       var ship = this.ships[i];
       var index = ship.locations.indexOf(guess);
-      if (index >= 0) { ship.hits[index] = "hit";
+      if (index >= 0) {
+      ship.hits[index] = "hit";
       view.displayHit(guess);
       view.displayarea("击中!");
       if (this.isSunk(ship)) {
@@ -43,11 +45,23 @@ isSunk: function(ship) {
   var count = 0;
   for(var i = 0; i < this.shipLength; i++) {
     if(ship.hits[i] === "hit") {
-      count++;
-
+      count++
+      if(count === 2) {
+        for (var k = 0; k < this.shipLength; k++) {
+          var vcolor = document.getElementById(ship.locations[k])
+          // view.displayHit(ship.locations[k])
+          vcolor.style.backgroundColor = "green"
+        }
+      } else {
+        for (var g = 0; g < this.shipLength; g++) {
+          var vcolor = document.getElementById(ship.locations[g])
+          // view.displayHit(ship.locations[g])
+          vcolor.style.backgroundColor = "red"
+        }
+      }
     }
     if(this.shipLength * 0.66 < count) {
-      return true
+      return true;
     }
   }
   return false
@@ -170,3 +184,5 @@ function test() {
 
 
 view.displayarea("猜测战舰位置，选定并开炮")
+
+
