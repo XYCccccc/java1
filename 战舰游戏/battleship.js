@@ -21,7 +21,6 @@ var model = {
   ships: [ { locations: ["0", "0", "0"], hits: ["", "", ""] },
            { locations: ["0", "0", "0"], hits: ["", "", ""] },
            { locations: ["0", "0", "0"], hits: ["", "", ""] } ],
-
   fire: function(guess) {
     for (var i = 0; i < this.numShips; i++) {
       var ship = this.ships[i];
@@ -46,17 +45,17 @@ isSunk: function(ship) {
   for(var i = 0; i < this.shipLength; i++) {
     if(ship.hits[i] === "hit") {
       count++
-      if(count === 2) {
+      if(count === 1) {
         for (var k = 0; k < this.shipLength; k++) {
           var vcolor = document.getElementById(ship.locations[k])
-          // view.displayHit(ship.locations[k])
-          vcolor.style.backgroundColor = "green"
+          view.displayHit(ship.locations[k])
+          vcolor.style.backgroundImage = "url('timg1.png')"
         }
       } else {
         for (var g = 0; g < this.shipLength; g++) {
           var vcolor = document.getElementById(ship.locations[g])
-          // view.displayHit(ship.locations[g])
-          vcolor.style.backgroundColor = "red"
+          view.displayHit(ship.locations[g])
+          vcolor.style.backgroundImage = "url('timg.png')"
         }
       }
     }
@@ -181,7 +180,6 @@ function test() {
 
   guessInput.value = "";
 }
-
 
 view.displayarea("猜测战舰位置，选定并开炮")
 
