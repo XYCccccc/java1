@@ -49,12 +49,13 @@ isSunk: function(ship) {
         for (var k = 0; k < this.shipLength; k++) {
           var vcolor = document.getElementById(ship.locations[k])
           view.displayHit(ship.locations[k])
-          vcolor.style.backgroundImage = "url('timg1.png')"
+          vcolor.style.backgroundImage = "url('ship.png')"
+          var ship1 = document.getElementById(event.target.id)
+          ship1.style.backgroundImage = "url('timg.png')"
         }
       } else {
         for (var g = 0; g < this.shipLength; g++) {
           var vcolor = document.getElementById(ship.locations[g])
-          view.displayHit(ship.locations[g])
           vcolor.style.backgroundImage = "url('timg.png')"
         }
       }
