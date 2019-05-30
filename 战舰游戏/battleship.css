@@ -17,6 +17,10 @@ body {
   color: rgb(83, 175, 19);
 }
 
+.daodan {
+  cursor: move;
+}
+
 table {
   position: absolute;
   left: 173px;

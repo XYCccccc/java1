@@ -28,16 +28,16 @@ var model = {
       if (index >= 0) {
       ship.hits[index] = "hit";
       view.displayHit(guess);
-      view.displayarea("击中!");
+      view.displayarea('<h1>' + "击中!" + '</h1>');
       if (this.isSunk(ship)) {
-        view.displayarea("你击了沉我的战舰!");
+        view.displayarea('<h1>' + "你击了沉我的战舰!" + '</h1>');
         this.shipsSunk++;
       }
       return true;
     }
   }
   view.displayMiss(guess);
-  view.displayarea("没打中,请继续猜测。");
+  view.displayarea('<h1>' + "没打中,请继续猜测。" + '</h1>');
   return false;
 },
 isSunk: function(ship) {
@@ -121,13 +121,14 @@ var controller = {
       controller.guesses++;
       var hit = model.fire(location);
       if (hit&& model.shipsSunk === model.numShips) {
-        view.displayarea("你击沉了我的战舰,共计猜测" + controller.guesses + "次")
+        view.displayarea('<h1>' + "你击沉了我的战舰,共计猜测" + controller.guesses + "次" + '</h1>')
       }
     }
   }
 }
 
-function parseGuess(guess) {   var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
+function parseGuess(guess) {
+   var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
    if (guess === null || guess.length !== 2) { 
      alert("请输出符合规定的输入");   
     } else { 
@@ -151,7 +152,6 @@ function init () {
   for (var i = 0; i<mouse.length; i++) {
     mouse[i].onclick = controller.processGuess;
   }
-
   fireButton.onclick = handleFireButton;
   var guessInput = document .getElementById("guessInput");
   guessInput.onkeypress = handleKeyPress;
@@ -182,6 +182,4 @@ function test() {
   guessInput.value = "";
 }
 
-view.displayarea("猜测战舰位置，选定并开炮")
-
-
+view.displayarea('<h1>' + "猜测战舰位置，选定并开炮" + '</h1>')
