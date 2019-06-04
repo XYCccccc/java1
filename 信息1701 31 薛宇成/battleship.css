@@ -6,6 +6,13 @@ body {
   background-color: black;
 }
 
+.biaoti {
+  color: rgb(152, 207, 113);
+  margin: auto;
+  margin-left: 800px;
+  font-size: 75px;
+}
+
 #board {
   position: relative;
   width: 1024px;
@@ -35,6 +42,11 @@ table {
 td {
   width: 94px;
   height: 94px;
+}
+
+td:hover {
+  background: url("miaozhun.png"),no-repeat;
+  background-color: blueviolet;
 }
 
 form{
