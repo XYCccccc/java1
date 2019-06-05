@@ -1,0 +1,17 @@
+use teacher 
+go
+select 学生表.学号 as 不及格学生学号,姓名,课程名,成绩 from 学生表 inner join 选课 on 学生表.学号=选课.学号 inner join 课程 on 选课.课程号=课程.课程号 where 成绩<60
+select 学生表.学号 as 不及格学生学号,姓名,课程名,成绩 from 学生表,选课,课程 where 学生表.学号=选课.学号 and 选课.课程号=课程.课程号 and 成绩<60
+select 教师.工号,姓名,课程名,学时,学分 from 教师 left join 课程 on 教师.工号=课程.授课教师
+select 学生表.学号,学生表1.姓名 from  学生表 inner join 学生表1 on 学生表.班级=学生表1.班级 where 学生表='11101002' and 学生表1.学号<>'11101002'
+select 学号 as 编号,姓名 from 学生表 union select 工号 as 编号, 姓名 from 教师
+select 姓名 from 学生表 where 学号 = (select 学号 from 选课 where 成绩<60 and 课程号=(select 课程号 from 课程 where 课程名='音乐欣赏'))
+select  姓名 from 学生表 where 学号 in(select 学号 from 选课 where 成绩<60)
+select  姓名 from 学生表 where 学号 not in(select 学号 from 选课 where 成绩<60)
+select 姓名 from 学生表 where 学号=any(select 学号 from 选课 where 成绩<60)
+select 姓名 from 学生表 where 学号<>all(select 学号 from 选课 where 成绩<60)
+if exists(select * from sysobjects where name = '教师') drop table 教师
+select * from 选课 where exists(select * from 选课 where 成绩<60)
+insert 电子学生商务 (学号,姓名,出生年月) select 学号,姓名,出生年月 from 学生表 where 班级 like '电子商务%'
+update 课程 set 学时=学时-6 where 授课教师 in (select 工号 from 教师 where 职称='教授')
+delete from 选课 where 学号=(select 学号 from 学生表 where 姓名='王斌')

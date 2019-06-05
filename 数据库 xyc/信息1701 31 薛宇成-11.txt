@@ -1,0 +1,13 @@
+create database SELCourse
+on
+ ( name = 'SELCourse',
+   filename = 'D:\data\SELCourse.mdf',
+   size = 10MB,
+   maxsize = unlimited,
+   filegrowth = 10%)
+log on
+(name = 'SELCourse_log',
+filename = 'D:\data\SELCourse_log.ldf',
+size = 3MB,
+maxsize = 5MB,
+filegrowth = 1MB)

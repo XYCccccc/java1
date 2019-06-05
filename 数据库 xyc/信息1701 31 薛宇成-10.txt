@@ -1,0 +1,9 @@
+use teacher 
+go
+select 教师.工号,姓名,课程名,学时,学分 from 教师 left join 课程 on 教师.工号=课程.授课教师
+select b.学号,b.姓名 from 学生表 as a inner join 学生表 as b on a.班级=b.班级 where a.学号='11101002' and b.学号<>'11101002'
+select b.学号,b.姓名 from 学生表 as a inner join 学生表 as b on a.班级=b.班级 where a.学号='11101002' and b.学号!='11101002'
+select 学号,姓名 from 学生表 union select 工号,姓名 from 教师
+select 学号,成绩 from 选课 where 课程号=(select 课程号 from 课程 where 课程名='音乐欣赏')
+select 姓名 from 学生表 where 出生日期=(select min(出生日期) from 学生表)
+select 姓名 from 学生表 where 学号=(select 学号 from 选课 where 成绩 < 60 and 课程号=(select 课程号 from 课程 where 课程名='音乐欣赏'))

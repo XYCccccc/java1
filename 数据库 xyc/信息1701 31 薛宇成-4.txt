@@ -1,0 +1,44 @@
+create database 网上书店
+on
+( name ='网上书店',
+filename ='D:\bookshop\网上书店.mdf',
+size=2MB,
+maxsize=unlimited
+)
+log on
+( name ='网上书店_log',
+filename = 'D:\bookshop\网上书店.ldf',
+size =2,
+maxsize=20
+)
+
+alter database 网上书店
+add filegroup textgroup
+
+alter database 网上书店
+add file
+
+(name='bookshop1',
+filename='D:\bookshop\bookshop1.ndf')
+to filegroup textgroup
+
+
+alter database 网上书店
+add log file
+
+(name='bookshop_log1',
+filename='D:\bookshop\bookshop_log1.ldf')
+
+alter database 网上书店
+remove file bookshop1
+
+alter database 网上书店
+remove file bookshop_log1
+
+exec sp_detach_db 网上书店
+exec sp_detach_db 'D:\bookshop\网上书店.mdf'
+
+alter database 网上书店
+modify name=bookshop
+
+sp_helpdb bookshop

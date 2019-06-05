@@ -1,0 +1,9 @@
+use teacher
+go
+select * from 选课 order by 课程号 compute count(学号), avg(成绩) by 课程号
+select * from 选课 compute avg(成绩),max(成绩),min (成绩)
+select 课程.*,教师.* from 课程 cross join 教师
+select 学生表.学号,姓名,课程号,成绩 from 学生表 inner join 选课 on 学生表.学号=选课.学号 where 成绩<60
+select 学生表.学号,姓名,课程号,成绩 from 学生表,选课 where 学生表.学号=选课.学号 and 成绩<60
+select 学生表.学号 as 不及格学生学号,姓名,课程名,成绩 from 学生表 inner join 选课 on 学生表.学号=选课.学号 inner join 课程 on 选课.课程号=课程.课程号 where 成绩<60
+select 学生表.学号 as 不及格学生学号,姓名,课程名,成绩 from 学生表,选课,课程 where 学生表.学号=选课.学号 and 选课.课程号=课程.课程号 and 成绩<60

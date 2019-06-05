@@ -1,0 +1,32 @@
+use 学生选课
+go
+alter table 学生表
+alter column 班级 char(30)
+
+alter table 学生表
+add 电话 varchar(11) null
+
+alter table 学生表
+drop column 电话
+
+alter table 教师表
+add  constraint ck_教师_学历 check (学历 in('中专', '专科', '本科', '硕士研究生', '博士研究生'))
+
+
+alter table 教师表
+add constraint df_教师表_职称 default ('讲师') for 职称
+
+alter table 课程表
+add constraint uq_课程表_课程名 unique(课程名)
+
+
+alter table 选课表
+drop constraint fk_课程表_选课表
+
+alter table 课程表
+add constraint pk_课程表_课程号 primary key (课程号)
+
+
+alter table 选课表
+add constraint fk_课程表_选课表 foreign key(课程号)
+references 课程表(课程号)
